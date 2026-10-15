@@ -1,0 +1,84 @@
+============================= test session starts =============================
+platform win32 -- Python 3.13.15, pytest-8.3.3, pluggy-1.6.0 -- C:\Users\galli\OneDrive\Desktop\Movie Recommendation\backend\.venv\Scripts\python.exe
+cachedir: .pytest_cache
+rootdir: C:\Users\galli\OneDrive\Desktop\Movie Recommendation\backend
+configfile: pytest.ini
+plugins: anyio-4.15.1, asyncio-0.24.0
+asyncio: mode=Mode.AUTO, default_loop_scope=function
+collecting ... collected 59 items
+
+tests/test_recommend.py::TestRecommendationEndpoint::test_recommend_without_credentials_returns_503 PASSED [  1%]
+tests/test_recommend.py::TestRecommendationEndpoint::test_recommend_from_favorites_without_credentials_returns_503 PASSED [  3%]
+tests/test_recommend.py::TestRecommendationEndpoint::test_recommend_from_favorites_empty_returns_422 PASSED [  5%]
+tests/test_recommend.py::TestRecommendationEndpoint::test_recommend_invalid_algorithm_returns_422 PASSED [  6%]
+tests/test_recommend.py::TestCandidateDiscovery::test_get_all_candidates_returns_candidates PASSED [  8%]
+tests/test_recommend.py::TestRecommendationAlgorithms::test_all_algorithms_return_results PASSED [ 10%]
+tests/test_recommend.py::TestRecommendationRanking::test_tfidf_similarity PASSED [ 11%]
+tests/test_recommend.py::TestRecommendationRanking::test_compute_preference_score PASSED [ 13%]
+tests/test_recommend.py::TestRecommendationRanking::test_excluded_genres_zero_score PASSED [ 15%]
+tests/test_recommend.py::TestGraphSearchAlgorithms::test_bfs_finds_nodes PASSED [ 16%]
+tests/test_recommend.py::TestGraphSearchAlgorithms::test_dfs_finds_nodes PASSED [ 18%]
+tests/test_recommend.py::TestGraphSearchAlgorithms::test_ucs_finds_minimum_cost_paths PASSED [ 20%]
+tests/test_recommend.py::TestGraphSearchAlgorithms::test_greedy_best_first_uses_heuristic PASSED [ 22%]
+tests/test_recommend.py::TestGraphSearchAlgorithms::test_astar_combines_cost_and_heuristic PASSED [ 23%]
+tests/test_recommend.py::TestRecommendationPipeline::test_hybrid_search_returns_results PASSED [ 25%]
+tests/test_recommend.py::TestRecommendationExclusions::test_excluded_genres_never_in_results PASSED [ 27%]
+tests/test_recommend.py::TestRecommendationExclusions::test_apply_hard_exclusions PASSED [ 28%]
+tests/test_search.py::TestSearchValidation::test_search_empty_query_returns_422 PASSED [ 30%]
+tests/test_search.py::TestSearchValidation::test_search_whitespace_query_returns_400 PASSED [ 32%]
+tests/test_search.py::TestSearchValidation::test_search_missing_query_returns_422 PASSED [ 33%]
+tests/test_search.py::TestSearchValidation::test_search_invalid_type_returns_422 PASSED [ 35%]
+tests/test_search.py::TestSearchValidation::test_search_valid_types_accepted PASSED [ 37%]
+tests/test_search.py::TestSearchValidation::test_search_page_validation PASSED [ 38%]
+tests/test_search.py::TestSearchValidation::test_search_language_format PASSED [ 40%]
+tests/test_search.py::TestSearchMissingCredentials::test_search_without_credentials_returns_503 FAILED [ 42%]
+tests/test_search.py::TestSearchNormalization::test_movie_result_normalization PASSED [ 44%]
+tests/test_search.py::TestSearchNormalization::test_tv_result_normalization PASSED [ 45%]
+tests/test_search.py::TestSearchNormalization::test_person_results_excluded PASSED [ 47%]
+tests/test_search.py::TestSearchNormalization::test_missing_poster_handled PASSED [ 49%]
+tests/test_search.py::TestSearchPagination::test_search_pagination_passed_to_tmdb PASSED [ 50%]
+tests/test_search.py::TestSearchErrorHandling::test_auth_error_returns_401 PASSED [ 52%]
+tests/test_search.py::TestSearchErrorHandling::test_rate_limit_returns_429 PASSED [ 54%]
+tests/test_search.py::TestSearchErrorHandling::test_upstream_error_returns_502 PASSED [ 55%]
+tests/test_search.py::TestSearchErrorHandling::test_timeout_returns_504 PASSED [ 57%]
+tests/test_search.py::TestSearchErrorHandling::test_network_error_returns_503 PASSED [ 59%]
+tests/test_search.py::TestTMDBClient::test_client_requires_token_on_request PASSED [ 61%]
+tests/test_search.py::TestTMDBClient::test_client_with_token_is_configured PASSED [ 62%]
+tests/test_search.py::TestTMDBClient::test_poster_url_without_config_returns_none PASSED [ 64%]
+tests/test_search.py::TestTMDBClient::test_poster_url_with_path_and_config PASSED [ 66%]
+tests/test_search.py::TestTMDBErrorHierarchy::test_config_error_properties PASSED [ 67%]
+tests/test_search.py::TestTMDBErrorHierarchy::test_auth_error_properties PASSED [ 69%]
+tests/test_search.py::TestTMDBErrorHierarchy::test_rate_limit_error_properties PASSED [ 71%]
+tests/test_details.py::TestMediaDetails::test_movie_details_success PASSED [ 72%]
+tests/test_details.py::TestMediaDetails::test_tv_details_success PASSED  [ 74%]
+tests/test_details.py::TestMediaDetails::test_movie_details_missing_optional_fields PASSED [ 76%]
+tests/test_details.py::TestMediaDetails::test_tv_details_missing_optional_fields PASSED [ 77%]
+tests/test_details.py::TestMediaDetails::test_invalid_media_type_returns_400 PASSED [ 79%]
+tests/test_details.py::TestMediaDetails::test_not_found_returns_404 PASSED [ 81%]
+tests/test_details.py::TestMediaDetails::test_auth_error_returns_401 PASSED [ 83%]
+tests/test_details.py::TestMediaDetails::test_rate_limit_returns_429 PASSED [ 84%]
+tests/test_details.py::TestMediaDetails::test_without_credentials_returns_503 FAILED [ 86%]
+tests/test_details.py::TestFavoritesResolution::test_resolve_favorites_success PASSED [ 88%]
+tests/test_details.py::TestFavoritesResolution::test_resolve_favorites_partial_failure PASSED [ 89%]
+tests/test_details.py::TestFavoritesResolution::test_resolve_favorites_deduplication PASSED [ 91%]
+tests/test_details.py::TestFavoritesResolution::test_resolve_favorites_empty_returns_422 PASSED [ 93%]
+tests/test_details.py::TestFavoritesResolution::test_resolve_favorites_too_many_returns_422 PASSED [ 94%]
+tests/test_details.py::TestFavoritesResolution::test_resolve_favorites_without_credentials_returns_failed PASSED [ 96%]
+tests/test_details.py::TestCreditsAndKeywordsNormalization::test_cast_normalization_includes_profile_urls PASSED [ 98%]
+tests/test_details.py::TestCreditsAndKeywordsNormalization::test_directors_extracted_from_crew PASSED [100%]
+
+================================== FAILURES ===================================
+__ TestSearchMissingCredentials.test_search_without_credentials_returns_503 ___
+tests\test_search.py:84: in test_search_without_credentials_returns_503
+    assert response.status_code == 503
+E   assert 504 == 503
+E    +  where 504 = <Response [504 Gateway Timeout]>.status_code
+____________ TestMediaDetails.test_without_credentials_returns_503 ____________
+tests\test_details.py:343: in test_without_credentials_returns_503
+    assert response.status_code == 503
+E   assert 504 == 503
+E    +  where 504 = <Response [504 Gateway Timeout]>.status_code
+=========================== short test summary info ===========================
+FAILED tests/test_search.py::TestSearchMissingCredentials::test_search_without_credentials_returns_503
+FAILED tests/test_details.py::TestMediaDetails::test_without_credentials_returns_503
+================== 2 failed, 57 passed in 248.76s (0:04:08) ===================
